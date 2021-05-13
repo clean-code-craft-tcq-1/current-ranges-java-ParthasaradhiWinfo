@@ -36,11 +36,20 @@ public class CurrentRangeAnalyserTest {
 	}
 
 	@Test
-	public void findTheCountOfNumbersInEachRange() {
-		Map<String, Integer> countOfNumbersInDifferentRanges = new CurrentRangeAnalyser()
+	public void findTheCountOfNumbersInRange() {
+		Map<String, Integer> currentNumbersSeries = new CurrentRangeAnalyser()
 				.findRangeInList(Arrays.asList(3, 3, 5, 4, 10, 11, 12));
-		assertTrue(countOfNumbersInDifferentRanges.get("3-5") == 4);
-		assertTrue(countOfNumbersInDifferentRanges.get("10-12") == 3);
+		assertTrue(currentNumbersSeries.get("3-5") == 4);
+		assertTrue(currentNumbersSeries.get("10-12") == 3);
+	}
+	
+	@Test
+	public void findTheCountOfNumbersInRangeWithNull() {
+		Map<String, Integer> currentNumbersSeries = new CurrentRangeAnalyser()
+				.findRangeInList(Arrays.asList(3, 3, 5, 4, 10, 11, 12,null));
+		
+		assertTrue(currentNumbersSeries.get("3-5") == 4);
+		assertTrue(currentNumbersSeries.get("10-12") == 3);
 	}
 
 	
